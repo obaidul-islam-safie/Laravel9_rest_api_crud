@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Validator;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -18,7 +19,11 @@ class UserController extends Controller
         ]);
 
         if($validation->fails()){
-
+            return response()->json(['errors' => $validation->errors()]);
         }
+
+        // $input['password']= bcrypt($input['password']);
+        // User::create($input);
+        // return response()->json(['message' => 'User Created successfully.','status'=>true],200);
     }
 }
