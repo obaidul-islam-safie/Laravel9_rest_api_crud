@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('user/store',[UserController::class,'store']);
+Route::get('user-list',[UserController::class,'getData']);
+Route::get('user/{id}',[UserController::class,'findUser']);
+Route::patch('user-update/{id}',[UserController::class,'update']);
