@@ -40,7 +40,7 @@ class UserController extends Controller
     }
 
 
-    public function update($id, Request $request){
+    public function update($id,Request $request){
         $input = $request->all();
 
         $validation = Validator::make($input,[
@@ -56,5 +56,11 @@ class UserController extends Controller
         $input['password'] = bcrypt($input['password']);
         User::where('id',$id)->update($input);
         return response()->json(['message' => 'User Update successfully.','status'=>true],200);
+    }
+
+
+    public function delete($id){
+        User::where('id',$id)->delete();
+        return response()->json(['message' => 'User Delete successfully.','status'=>true],200);
     }
 }

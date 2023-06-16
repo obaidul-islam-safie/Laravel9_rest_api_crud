@@ -24,3 +24,4 @@ Route::post('user/store',[UserController::class,'store']);
 Route::get('user-list',[UserController::class,'getData']);
 Route::get('user/{id}',[UserController::class,'findUser']);
 Route::patch('user-update/{id}',[UserController::class,'update']);
+Route::delete('user-delete/{id}',[UserController::class,'delete']);
